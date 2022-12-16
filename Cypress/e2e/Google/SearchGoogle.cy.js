@@ -1,8 +1,10 @@
 describe("TODO App > ", () => {
-    it("Check First Child", () => {
-        cy.visit("https://www.google.com/");
-        cy.get('.gLFyf').type('BTS{enter}');
+    beforeEach (() => {
+        cy.visit("https://www.google.com/")
+    })
+    it("Input keyword and enter", () => {
+        cy.get('.gLFyf').should('be.empty').type('BTS{enter}');
         cy.wait(5000);
-        cy.get("img[role='button']").click()
+        cy.get('div[data-hveid=\'CDcQAA\'] div[role=\'heading\']').should('be.BTS')
     })
 });
